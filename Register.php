@@ -1,3 +1,31 @@
+<?php
+$server="localhost";
+$username="root";
+$password="";
+$database="zalego";
+
+$done=mysqli_connect($server,$username,$password,$database);
+
+if(isset($_POST['enter']))
+{
+    $fullname=$_POST['fullname'];
+    $phonenumber=$_POST['phonenumber'];
+    $email=$_POST ['email'];
+    $gender=$_POST['gender'];
+    $course=$_POST['course'];
+
+    $data=mysqli_query($done,"INSERT INTO 
+    enrollment(fullname,phonenumber,email,gender,course)VALUE('$fullname','$phonenumber','$email','$gender','$course')");
+
+
+}
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,31 +84,31 @@
         <p> Looking for a place kickstart your carrer in Technology? <br> Whether you're a local new in town or just cruising throught we've got <br> loads of great tips and event for you.</p>
     </center>
 
-    <form action="" method="post" class="shadow">
+    <form action="register.php" method="post" class="shadow">
         <center>
             <h2>Sign up today?</h2>
         </center>
         <div class="row">
             <div class="col-lg-6">
                 <label for=""> Full Name:</label>
-                <input type="text" class="form-control" id="">
+                <input name="fullname" type="text" class="form-control" id="">
 
             </div>
             <div class="col-lg-6">
-                <label for="">Phone Number</label>
-                <input type="number" class="form-control">
+                <label for="">phonenumber</label>
+                <input name="phonenumber" type="number" class="form-control">
             </div>
 
         </div>
         <div class="row">
             <div class="col-lg-6">
-                <label for="">Email Address</label>
-                <input type="text" class="form-control">
+                <label  for="">Email Address</label>
+                <input name="email" type="text" class="form-control">
 
             </div>
             <div class="col-lg-6">
                 <label for="">What's your gender</label>
-                <select class="form-control">
+                <select name="gender" class="form-control">
                     <option> <b> --Select your gender-- </b></option>
                     <option>MALE</option>
                     <OPtion>FEMALE</OPtion>
@@ -94,7 +122,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <label for="">What's your preferred course?</label>
-                <select class="form-control" id="">
+                <select name="course" class="form-control" id="">
                     <option ><b>--Select your course--</b></option>
                     <option > Cyber security</option>
                     <option >Web development </option>
@@ -108,7 +136,7 @@
         <p>You agree by providing your information you understand all our data policy and protection policy <br> outlined in our Terms & condition and Privicy Policy statements </p>
         <input type="checkbox">
         <label for="">  Agree terms and condition</label> <br>
-        <br> <button type="submit" class="btn btn-primary">Submit application </button>
+        <br> <button type="submit" name="enter" class="btn btn-primary">Submit application </button>
 
 
 
@@ -120,8 +148,8 @@
         <p>Subscribe to get information lastest about <br> Zalego Academy</p>
     </center>
     <center>
-        <input type="email" placeholder="Your email address">
-        <button type=" submit " class="btn btn-primary ">Subscribe</button>
+        <input type="email"  placeholder="Your email address">
+        <button type=" submit" class="btn btn-primary ">Subscribe</button>
     </center>
     <script src="bootstrap-5.2.0-beta1-dist/bootstrap-5.2.0-beta1-dist/js/bootstrap.bundle.js "></script>
     <script src="bootstrap-5.2.0-beta1-dist/bootstrap-5.2.0-beta1-dist/js/bootstrap.min.js "></script>
